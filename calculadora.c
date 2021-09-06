@@ -1,64 +1,44 @@
-int main(void)
-{
-        float num1,
-              num2;
-        char oper;
+// C# program to illustrate the calculator
+int main(void){
+    float x=0, y=0, resultado=0;
+    int op=0;
+    do{
+        printf("\n###################################################\n");
+        printf("\n###   FIAP CALCULATOR - BY GIOVANNI - RM87960   ###");
+        printf("\n");
+        printf("\n\t1 - SUM\n\t2 - SUB\n\t3 - MULT\n\t4 - DIV\n");
+        printf("\n");
+        printf("SELECT THE OPTION: ");
+        scanf("%i", &op);
+        printf("\nTYPE THE FIRST NUMBER: ");
+        scanf("%f", &x);
+        printf("\nTYPE THE SECOND NUMBER: ");
+        scanf("%f", &y);
 
-        do
-        {
-            printf("\t\tCalculadora da bagaça da FIAP\n\n");
-
-            printf("Digite o primeiro número");
-            scanf("%f", &num1);
-                        
-            printf("Digite operação\n");
-            printf("'+' : soma\n");
-            printf("'-' : subtracao\n");
-            printf("'*' : multiplicao\n");
-            printf("'/' : divisao\n");
-            printf("'%%' : resto da divisao\n");
-            scanf(" %c",&oper);
-            
-            printf("Digite o segundo número");
-            scanf("%f", &num2);
-
-
-
-            printf("Calculando: %.2f %c %.2f = ", num1,oper,num2);
-
-
-            switch( oper )
-            {
-                case '+':
-                        printf("%.2f\n\n", num1 + num2);
-                        break;
-
-                case '-':
-                        printf("%.2f\n\n", num1 - num2);
-                        break;
-
-                case '*':
-                        printf("%.2f\n\n", num1 * num2);
-                        break;
-
-                case '/':
-                        if(num2 != 0)
-                            printf("%.2f\n\n", num1 / num2);
-                        else
-                            printf("Nao existe divisao por 0\n\n");
-                        break;
-
-                case '%':
-                        printf("%d\n\n", (int)num1 % (int)num2);
-                        break;
-
-                default:
-                        if(num1 != 0 && oper != '0' && num2 != 0)
-                            printf(" Operador invalido\n\n ");
-                        else
-                            printf(" Fechando calculadora!\n ");
-            }
-
-        }while(num1 != 0 && oper != '0' && num2 != 0);
-
+        switch(op){
+            case 1:
+                resultado = x+y;
+                break;
+            case 2:
+                resultado = x-y;
+                break;
+            case 3:
+                resultado = x*y;
+                break;
+            case 4:
+                resultado = x/y;
+                break;
+            default:
+                printf("\n SELECT A VALID OPTION\n");
+                break;
+        }
+        printf("\n\THE RESULT IS: %0.2f", resultado);
+        printf("\n");
+        printf("\n\TYPE ANY KEY TO CONTINUE: ");
+        // basic use of "Console.ReadKey()" method
+        getch();
+        //break;
+        op=1;
+        system("cls || clear");
+    }while(op==1);
 }
